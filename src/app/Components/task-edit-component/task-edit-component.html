@@ -6,6 +6,9 @@
     <th scope="col">Due Date</th>
     <th scope="col">Status</th>
     <th scope="col">Priority</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
+    <tbody></tbody>
   </tr>
 </thead>
 @if(visible){
@@ -29,7 +32,7 @@
           <td>
             <select class = "form-select" [(ngModel)] = "newTask.priority">
             <div>
-                <option>High/option>
+                <option>High</option>
                 <option>Medium</option>
                 <option>Low</option>
             </div>
@@ -39,6 +42,8 @@
         </tr>
     </tbody>
 </table>
+} @else if (!visible && deleted){
+  <p>Empty Tasks</p>
 } @else {
     <tbody>
         <tr class="table-active">
@@ -50,6 +55,9 @@
             <TD>
             <button type = "button" class = "btn btn-primary" (click)="Edit()">Edit</button>
           </TD>
+          <td>
+            <button type = "button" class = "btn btn-primary" (click)="Delete()">Delete</button>
+          </td>
         </tr>
     </tbody>
   }

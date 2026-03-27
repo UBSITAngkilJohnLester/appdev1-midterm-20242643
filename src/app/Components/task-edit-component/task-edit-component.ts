@@ -11,6 +11,7 @@ import { RouterLink } from "@angular/router";
 export class TaskEditComponent {
   newTask: taskModel = {title: '', description: '', dueDate: '', status: '', priority: ''}
   visible: boolean = false;
+  deleted: boolean = false;
 
   Edit(){
     this.visible = true;
@@ -18,5 +19,10 @@ export class TaskEditComponent {
 
   Confirm(){
     this.visible = false;
+  }
+
+  Delete(){
+    this.deleted = true
+    alert("Task Deleted");
   }
 }

@@ -1,1 +1,50 @@
-<p>task-edit-component works!</p>
+<h1>Edit</h1>
+<button type = "button" class = "btn btn-primary" (click)="Clicked()">Add A New Task</button>
+
+@if(clicked){
+    <table class="table table-hover">
+    <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Due Date</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-active">
+          <th scope="row">
+            <input type = "title" [(ngModel)] = "newTask.title">
+          </th>
+          <td><input type="text" [(ngModel)] = "newTask.description"></td>
+          <td><input type="text" [(ngModel)] = "newTask.dueDate"></td>
+          <td>
+            <select class = "form-select" [(ngModel)] = "newTask.status">
+            <div>
+                <option>Pending</option>
+                <option>In Progress</option>
+                <option>Completed</option>
+            </div>
+        </select>
+          </td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Status</th>
+          </tr>
+    </thead>
+    <tbody>
+        <td>{{newTask.title}}</td>
+        <td>{{newTask.description}}</td>
+        <td>{{newTask.dueDate}}</td>
+        <td>{{newTask.status}}</td>
+    </tbody>
+</table>
+}

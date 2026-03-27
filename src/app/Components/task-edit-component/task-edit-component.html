@@ -1,19 +1,18 @@
-<h1>Edit</h1>
-<button type = "button" class = "btn btn-primary" (click)="Clicked()">Add A New Task</button>
-
-@if(clicked){
+<table class="table table-hover">
+<thead>
+  <tr>
+    <th scope="col">Title</th>
+    <th scope="col">Description</th>
+    <th scope="col">Due Date</th>
+    <th scope="col">Status</th>
+    <th scope="col">Priority</th>
+  </tr>
+</thead>
+@if(visible){
     <table class="table table-hover">
-    <thead>
-        <tr>
-          <th scope="col">Title</th>
-          <th scope="col">Description</th>
-          <th scope="col">Due Date</th>
-          <th scope="col">Status</th>
-        </tr>
-      </thead>
       <tbody>
         <tr class="table-active">
-          <th scope="row">
+          <th>
             <input type = "title" [(ngModel)] = "newTask.title">
           </th>
           <td><input type="text" [(ngModel)] = "newTask.description"></td>
@@ -27,24 +26,31 @@
             </div>
         </select>
           </td>
+          <td>
+            <select class = "form-select" [(ngModel)] = "newTask.priority">
+            <div>
+                <option>High/option>
+                <option>Medium</option>
+                <option>Low</option>
+            </div>
+        </select>
+          </td>
+          <button type = "button" class = "bt btn-primary" (click) = "Confirm()">Confirm</button>
         </tr>
     </tbody>
 </table>
-
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th scope="col">Due Date</th>
-            <th scope="col">Status</th>
-          </tr>
-    </thead>
+} @else {
     <tbody>
-        <td>{{newTask.title}}</td>
-        <td>{{newTask.description}}</td>
-        <td>{{newTask.dueDate}}</td>
-        <td>{{newTask.status}}</td>
+        <tr class="table-active">
+            <td>{{newTask.title}}</td>
+            <td>{{newTask.description}}</td>
+            <td>{{newTask.dueDate}}</td>
+            <td>{{newTask.status}}</td>
+            <td>{{newTask.priority}}</td>
+            <TD>
+            <button type = "button" class = "btn btn-primary" (click)="Edit()">Edit</button>
+          </TD>
+        </tr>
     </tbody>
-</table>
-}
+  }
+  </table>

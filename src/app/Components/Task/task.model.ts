@@ -3,4 +3,5 @@ interface taskModel{
     description: string;
     dueDate: string;
     status: string;
+    priority: string;
 }
